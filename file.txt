@@ -1,0 +1,1 @@
+Estoy usuando el comando cat y para salir de la edicion es CTRL+D

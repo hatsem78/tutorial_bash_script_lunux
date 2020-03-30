@@ -1,0 +1,2 @@
+ls: no se puede acceder a 'foobar': No existe el archivo o el directorio
+ls: no se puede acceder a 'barfoo': No existe el archivo o el directorio
