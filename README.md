@@ -133,3 +133,73 @@ y ls para mostrar todos los archivos ls pwd
     do
          echo -n  " $i is " ; echo $i | wc -c
     done
+
+
+##While Loop
+Construcción y ejemplo del uso del bucle while
+
+    counter=0
+    while [ $counter -lt 3 ]; 
+    do 
+        let counter+=1
+        echo $counter
+    done
+    
+Al trabajar con paso de paramtros a un bash script una buena practica para leer todos los parametros que se ingresaron.
+se puede utilizar el comando $* y utilizar un bucle for para leer cada parametro ingresado 
+    
+    for directory in $*; do
+        echo $directory
+    done;
+    
+##Expansión Aritmética
+
+La expansión aritmética es probablemente el método más simple sobre cómo lograr cálculos básicos. 
+Simplemente encerramos cualquier expresión matemática dentro de paréntesis dobles.
+Realicemos algunos cálculos simples de suma, resta, multiplicación y división con enteros:
+    
+    a=$((12+3)); echo $a
+    15
+    a=$((12-3)); echo $a
+    9
+    a=$((12*3)); echo $a
+    36
+    a=$((12/3)); echo $a
+    4
+    a=$((12%5)); echo $a
+    2
+    a=$((12%3)); echo $a
+    0
+##Comando expr
+
+Otra alternativa a la expansión aritmética es el exprcomando. El uso del comando expr nos permite realizar una operación aritmética incluso sin encerrar nuestra expresión matemática entre corchetes o comillas. 
+Sin embargo, no olvide escapar del signo de multiplicación de asterisco para evitar expr: syntax error
+
+    
+      expr 6 + 2
+      8
+      expr 6 * 2
+      expr: error de sintaxis
+      expr 6 \* 2
+      12
+##Comando let
+Del mismo modo, como con el exprcomando, podemos realizar operaciones aritméticas bash con el letcomando. 
+let El comando evalúa una expresión matemática y almacena su resultado en una variable.
+Ya hemos encontrado el letcomando en uno de nuestros ejemplos anteriores donde lo hemos usado para realizar un 
+incremento de enteros. El siguiente ejemplo muestra algunas operaciones básicas que utilizan letcomandos, 
+así como operaciones de incremento de enteros y exponentes como :x3
+
+    let a=2+2
+    echo $a
+    #incrementamos la variable a en 5
+    let a+=5; echo $a
+      
+ 
+ ##Comando bc
+ El comando bc lo utilizamos para la aritmetica de numeros flotantes y complejos, se utiliza scale para indicar 
+ al comando bc que son numeros reales
+ 
+    a=15/20 | bc; echo $a
+    echo $a
+    echo 'scale=2;8.5 / 2.3' | bc
+   
