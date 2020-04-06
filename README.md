@@ -8,7 +8,7 @@ pregunte: "¿Qué debo hacer con esta cosa?"
 Bueno, la ventana de terminal frente a usted contiene shell , y shell le permite mediante el uso de comandos para 
 interactuar con su computadora, por lo tanto, recuperar o almacenar datos, procesar información y otras tareas simples o incluso extremadamente complejas.
 
-##Primier script
+## Primier script
     nano task.sh
     #una vez abierto el editor ingresar
     date # fecha calendario del sistema
@@ -26,13 +26,13 @@ Otra manera de correr un bash script es escribiendo
 
     bash task.sh
     
-##Path elativo vs absoluto
+## Path elativo vs absoluto
 Un nombre de ruta absoluto es uno que comienza con el /carácter, que significa la raíz del árbol del sistema de archivos. Por lo tanto, otra forma de ir a su directorio de inicio es:
     $ pwd / usr / local / bin 
 na ruta relativa es aquella que comienza con el nombre de un directorio conectado al directorio actual. Por ejemplo, si está en el /usrdirectorio, escribir solo cd bin(sin preceder "bin" con "/")  
 
 
-##Redirecciones de entrada, salida y error
+## Redirecciones de entrada, salida y error
 
 La diferencia entre la salida stdout y stderr es un concepto esencial ya que nos permite una amenaza,
 es decir, redirigir cada salida por separado. La >notación se usa para redirigir stdout a un archivo,
@@ -58,7 +58,7 @@ es decir, redirigir cada salida por separado. La >notación se usa para redirigi
       
 
 
-##Comparaciones numéricas y de cadenas
+## Comparaciones numéricas y de cadenas
 En esta sección, vamos a aprender algunos conceptos básicos de las comparaciones de shell de bash numérico y de cadena. Usando comparaciones, podemos comparar cadenas (palabras, oraciones) o números enteros sin procesar o como variables. La siguiente tabla enumera operadores de comparación rudimentarios para números y cadenas:
 
 <table class="uk-table uk-table-striped uk-table-condensed"><caption><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bash Shell Numérico y comparaciones de cadenas</font></font></caption> <thead> <tr> <th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Descripción</font></font></th> <th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Comparación numérica</font></font></th> <th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Comparación de cadenas</font></font></th> </tr> </thead><tfoot> <tr> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ejemplo de comparación de shell: </font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">[100 -eq 50]; </font><font style="vertical-align: inherit;">echo $?</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">["GNU" = "UNIX"]; </font><font style="vertical-align: inherit;">echo $?</font></font></td> </tr> </tfoot> <tbody> <tr> <td class="uk-text-primary uk-text-bold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">menos que</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-lt</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;</font></font></td> </tr> <tr> <td class="uk-text-primary uk-text-bold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mas grande que</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-gt</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&gt;</font></font></td> </tr> <tr> <td class="uk-text-primary uk-text-bold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">igual</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-eq</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">=</font></font></td> </tr> <tr> <td class="uk-text-primary uk-text-bold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">no es igual</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-Nebraska</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">! =</font></font></td> </tr> <tr><td class="uk-text-primary uk-text-bold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">menor o igual</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-le</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">N / A</font></font></td> </tr>  <tr><td class="uk-text-primary uk-text-bold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mayor o igual</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-ge</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">N / A</font></font></td> </tr> </tbody> </table>
@@ -82,7 +82,7 @@ En esta sección, vamos a aprender algunos conceptos básicos de las comparacion
     # a no es igual que b
     [ $a -ne $b ]; echo $?
 
-###condicional if / else
+### condicional if / else
   
   #!/bin/bash
 
@@ -202,4 +202,19 @@ así como operaciones de incremento de enteros y exponentes como :x3
     a=15/20 | bc; echo $a
     echo $a
     echo 'scale=2;8.5 / 2.3' | bc
-   
+    
+    
+## Algunos comandos practico
+
+Para interactuar con el usuario y que sea lo más practico para el uso,
+tenemos algunos usos.
+
+Uso practico a la hora de ingresar datos mas ejemplos reading_user_intput.sh
+
+    # para ingresar argumentos podemos usar -e y "\c" el cual nos deja ingresar el valor 
+    # seguido de la leyenda, capturamos el valor con el comando read
+    echo -e "Hi, please type the word: \c "; read word
+    # Mostramos el valor en pantalla en este caso tenemos la particularidad que queremos agregar
+    # comillas "" para esto lo hacemos con '\"' lo cual nos permite ingresar las comillas, por 
+    lo contrario nos dara un error
+    echo "Dato ingresado \"${word}\" "
